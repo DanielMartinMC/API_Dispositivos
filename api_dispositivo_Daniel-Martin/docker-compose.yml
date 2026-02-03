@@ -1,0 +1,13 @@
+name: fastapi-mysql
+
+services:   
+  db-mysql:  
+    image: mysql 
+    container_name: db-mysql   
+    environment:  
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: dispositivosdb
+      MYSQL_USER: quevedo
+      MYSQL_PASSWORD: 1234
+    ports:  
+      - "3306:3306"  
