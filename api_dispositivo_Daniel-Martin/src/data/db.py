@@ -20,6 +20,8 @@ def init_db():
     with Session(engine) as session:
         session.add(Dispositivo(id=1, nombre="iPhone 15", marca="Apple", fecha_compra="2023-12-01"))
         session.add(Dispositivo(id=2, nombre="Galaxy S23", marca="Samsung", fecha_compra="2024-01-15"))
+        session.add(Dispositivo(id=3, nombre="iPhone 17 Pro", marca="Apple", fecha_compra="2025-11-17"))
+        session.add(Dispositivo(id=4, nombre="iPhone 12", marca="Apple", fecha_compra="2020-03-10"))
         session.commit()
         
         
