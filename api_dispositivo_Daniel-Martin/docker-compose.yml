@@ -1,13 +1,24 @@
-name: fastapi-mysql
+name: fastapi-dispositivos
 
-services:   
-  db-mysql:  
+services: 
+  fastapi-app:  
+    build:  
+      context: .  
+      dockerfile: Dockerfile  
+    container_name: fastapi-app-dispositivos 
+    restart: always  
+    ports:  
+      - "8000:8000"  
+    depends_on:  
+      - fastapi-db  
+  fastapi-db:  
     image: mysql 
-    container_name: db-mysql   
+    container_name: fastapi-db-dispositivos  
     environment:  
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: quevedo
       MYSQL_DATABASE: dispositivosdb
       MYSQL_USER: quevedo
       MYSQL_PASSWORD: 1234
     ports:  
       - "3306:3306"  
+  

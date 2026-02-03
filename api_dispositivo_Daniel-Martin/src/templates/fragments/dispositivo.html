@@ -1,0 +1,28 @@
+{% extends "fragments/base.html" %}
+{% block title %}Dispositivos{% endblock %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>MARCA</th>
+        <th>MODELO</th>
+        <th>FECHA COMPRA</th>
+    </tr>
+    {% for dispositivo in dispositivos %}
+    <tr>
+        <td>{{ dispositivo.id }}</td>
+        <td>{{ dispositivo.nombre }}</td>
+        <td>{{ dispositivo.marca }}</td>
+        <td>{{ dispositivo.modelo }}</td>
+        <td>{{ dispositivo.fecha_compra }}</td>
+        <td><a href="/dispositivos/{{ dispositivo.id }}">Ver detalles</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+{% block footer %}
+Autor: Daniel Martin    
+{% endblock %}
