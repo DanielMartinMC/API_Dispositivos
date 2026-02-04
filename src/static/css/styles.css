@@ -290,6 +290,9 @@ code { padding: 2px 6px; }
 .mb-4 { margin-bottom: 16px; }
 .w-full { width: 100%; }
 .center { display: grid; place-items: center; }
+.max-w-md { width: min(560px, 92vw); }
+.max-w-lg { width: min(760px, 92vw); }
+.items-center { display: grid; justify-items: center; }
 
 /* Navbar opcional (por si se añade) */
 .navbar {

@@ -1,33 +1,37 @@
 {%extends "fragments/base.html" %}
 
 {% block content %}
+    <!-- Caja centrada para crear un nuevo dispositivo -->
+    <div class="container center">
+        <div class="card max-w-lg items-center animate-in">
+            <h1 class="mb-3">📝 Nuevo Dispositivo</h1>
+            <form class="form w-full" method="post" action="/dispositivos/new" enctype="application/x-www-form-urlencoded">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Dispositivo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Introduce el nombre" required>
+                </div>
 
-    <div class="form-container">
-        <h1>📝 Nueva Dispositivo</h1>
-        <form method="post" action="/dispositivos/new" enctype="application/x-www-form-urlencoded">
-            <div class="form-group">
-                <label for="nombre">Nombre del Dispositivo:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Introduce el nombre" required>
+                <div class="form-group">
+                    <label for="marca">Marca del Dispositivo</label>
+                    <input type="text" id="marca" name="marca" placeholder="Introduce la marca" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modelo">Modelo del Dispositivo</label>
+                    <input type="text" id="modelo" name="modelo" placeholder="Introduce el modelo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha_compra">Fecha de compra</label>
+                    <input type="date" id="fecha_compra" name="fecha_compra" required>
+                </div>
+
+                <button class="btn btn-primary w-full mt-3" type="submit">Guardar Dispositivo</button>
+            </form>
+
+            <div class="mt-4">
+                <a class="btn btn-outline w-full" href="/dispositivos">← Volver a la lista de dispositivos</a>
             </div>
-
-            <div class="form-group">
-                <label for="nombre">Marca del Dispositivo:</label>
-                <input type="text" id="marca" name="marca" placeholder="Introduce la marca" required>
-            </div>
-
-            <div class="form-group">
-                <label for="modelo">Modelo del Dispositivo:</label>
-                <input type="text" id="modelo" name="modelo" placeholder="Introduce el modelo" required>
-            </div>
-
-            <div class="form-group">
-                <label for="fecha_compra">Fecha de compra:</label>
-                <input type="date" id="fecha_compra" name="fecha_compra" placeholder="Introduce la fecha de compra" required>
-            </div>
-
-            <button type="submit">Guardar Dispositivo</button>
-        </form>
-
-        <a href="/dispositivos" class="back-link">← Volver a la lista de dispositivos</a>
+        </div>
     </div>
 {% endblock %}
