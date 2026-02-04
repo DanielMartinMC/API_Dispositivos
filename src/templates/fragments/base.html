@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}
     <title>{% block title %}{% endblock %}</title>
+    <meta name="theme-color" content="#0a0f14">
+    <link rel="stylesheet" href="{{ request.url_for('static', path='css/styles.css') }}">
     
     {% endblock %}
 </head>

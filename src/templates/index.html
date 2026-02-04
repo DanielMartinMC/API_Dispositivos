@@ -5,6 +5,7 @@
     <h1>Web de Dispositivos</h1>
     <p><a href="{{ request.url_for('static', path='index.html') }}">Contenido estático</a></p>
     <p><a href="{{ request.url_for('ver_dispositivos') }}">Ver lista de dispositivos</a></p>
+    <p><a href="{{ request.url_for('crear_dispositivo') }}">Crear nuevo dispositivo</a></p>
 {% endblock %}
 
 {% block footer %}
