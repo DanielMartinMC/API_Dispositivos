@@ -16,8 +16,8 @@ services:
     container_name: fastapi-db-dispositivos  
     environment:  
       MYSQL_ROOT_PASSWORD: quevedo
-      MYSQL_DATABASE: dispositivosdb
-      MYSQL_USER: quevedo
+      MYSQL_DATABASE: dispositivos_db
+      MYSQL_USER: daniel
       MYSQL_PASSWORD: 1234
     ports:  
       - "3306:3306"  

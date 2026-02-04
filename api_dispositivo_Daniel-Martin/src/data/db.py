@@ -1,14 +1,23 @@
 from sqlmodel import create_engine, SQLModel, Session
 from models.dispositivo import Dispositivo
+import os
+from dotenv import load_dotenv
 
-db_user: str = "daniel"  
-db_password: str =  "1234"
-db_server: str = "localhost" 
-db_port: int = 3306  
-db_name: str = "dispositivosdb"  
+load_dotenv()
 
-DATABASE_URL = "mysql+pymysql://daniel:1234@localhost:3306/dispositivosdb"
-engine = create_engine(DATABASE_URL, echo=True)
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    db_user: str = os.getenv("DB_USER", "daniel") 
+    db_password: str = os.getenv("DB_PASSWORD", "1234")
+    db_server: str = os.getenv("DB_SERVER", "fastapi-db-postgres") 
+    db_port: int = os.getenv("DB_PORT", 5432)  
+    db_name: str = os.getenv("DB_NAME", "dispositivos_db")
+    DATABASE_URL = f"postgresql+psycopg2://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}"
+else:
+    print("Using provided DATABASE_URL")
+    
+     
+engine = create_engine(os.getenv("DATABASE_URL", DATABASE_URL))
 
 def get_session():
     with Session(engine) as session:

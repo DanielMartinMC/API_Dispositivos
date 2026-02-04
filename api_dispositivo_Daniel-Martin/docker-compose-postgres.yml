@@ -1,0 +1,22 @@
+name: fastapi-dispositivos-postgres
+
+services: 
+  fastapi-app:  
+    build:  
+      context: .  
+      dockerfile: Dockerfile  
+    container_name: fastapi-app-dispositivos-postgres
+    restart: always  
+    ports:  
+      - "8000:8000"  
+    depends_on:  
+      - fastapi-db-postgres
+  fastapi-db-postgres:  
+    image: postgres
+    container_name: fastapi-db-dispositivos-postgres  
+    environment:  
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:  
+      - "5432:5432"  

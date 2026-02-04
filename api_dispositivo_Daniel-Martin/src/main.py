@@ -42,7 +42,7 @@ async def root(request: Request):
 async def ver_dispositivos(request: Request, session: SessionDep):
     repo = DispositivoRepository(session)
     dispositivos = repo.get_all_dispositivos()
-    return templates.TemplateResponse("dispositivos/dispositivos.html", {"request": request, "dispositivos": dispositivos})
+    return templates.TemplateResponse("dispositivos/dispositivo.html", {"request": request, "dispositivos": dispositivos})
 
 @app.get("/dispositivos/new", response_class=HTMLResponse)
 async def nuevo_dispositivo_form(request: Request):
@@ -87,4 +87,4 @@ async def dispositivo_por_id(dispositivo_id: int, request: Request, session: Ses
 
 if __name__ == "__main__":
     # Ejecutar desde la raíz del proyecto: uvicorn src.main:app --reload
-    uvicorn.run("src.main:app", host="127.0.0.1", port=3000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=3000, reload=True)
