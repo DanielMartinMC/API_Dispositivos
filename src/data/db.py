@@ -9,7 +9,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     db_user: str = os.getenv("DB_USER", "daniel") 
     db_password: str = os.getenv("DB_PASSWORD", "1234")
-    db_server: str = os.getenv("DB_SERVER", "localhost") 
+    db_server: str = os.getenv("DB_SERVER", "fastapi-db-postgres") 
     db_port: int = os.getenv("DB_PORT", 5432)  
     db_name: str = os.getenv("DB_NAME", "dispositivos_db")
     DATABASE_URL = f"postgresql+psycopg2://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}"
